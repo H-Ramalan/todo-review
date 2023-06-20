@@ -1,14 +1,14 @@
-import "./index.css";
-import addTask from "./modules/addTask.js";
+import './index.css';
+import addTask from './modules/addTask.js';
 import {
   displayTasks,
   getTodos,
   saveTasks,
   updateTodos,
-} from "./modules/dataModule.js";
+} from './modules/dataModule.js';
 
-const form = document.querySelector(".form");
-const clearBtn = document.querySelector(".clear-btn");
+const form = document.querySelector('.form');
+const clearBtn = document.querySelector('.clear-btn');
 
 displayTasks();
 
@@ -20,5 +20,5 @@ function clearTasks() {
   displayTasks();
 }
 
-form.addEventListener("submit", addTask);
-clearBtn.addEventListener("click", clearTasks);
+form.addEventListener('submit', addTask);
+clearBtn.addEventListener('click', clearTasks);

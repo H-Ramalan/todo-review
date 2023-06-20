@@ -1,4 +1,4 @@
-import { getTodos, updateTodos, saveTasks } from "./dataModule.js";
+import { getTodos, updateTodos, saveTasks } from './dataModule.js';
 
 export default function removeTask(id) {
   let todos = getTodos(); // Get the current todos array

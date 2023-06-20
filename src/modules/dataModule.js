@@ -1,9 +1,9 @@
-import statusChange from "./statusModule.js";
+import statusChange from './statusModule.js';
 
-let todos = JSON.parse(localStorage.getItem("todos")) || [];
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
 export function saveTasks() {
-  localStorage.setItem("todos", JSON.stringify(todos));
+  localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 export function getTodos() {
@@ -34,13 +34,13 @@ export function editTask(event) {
 }
 
 export function displayTasks() {
-  const todoList = document.querySelector(".todo-list");
-  todoList.innerHTML = "";
+  const todoList = document.querySelector('.todo-list');
+  todoList.innerHTML = '';
 
   const todos = getTodos();
   todos.forEach((task) => {
-    const li = document.createElement("li");
-    li.className = "list-item";
+    const li = document.createElement('li');
+    li.className = 'list-item';
     li.innerHTML = `
       <input type="checkbox" class="check" data-id="${task.id}" />
       <span class='title' data-id="${task.id}" contenteditable='true'>${task.task}</span>
@@ -49,17 +49,17 @@ export function displayTasks() {
     todoList.appendChild(li);
   });
 
-  const closeButtons = document.querySelectorAll(".close");
+  const closeButtons = document.querySelectorAll('.close');
   closeButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
+    button.addEventListener('click', (e) => {
       const taskId = parseInt(e.target.dataset.id, 10);
       removeTask(taskId);
     });
   });
 
-  const checkboxs = document.querySelectorAll(".check");
+  const checkboxs = document.querySelectorAll('.check');
   checkboxs.forEach((button) => {
-    button.addEventListener("change", (e) => {
+    button.addEventListener('change', (e) => {
       const todos = getTodos(); // Get the current todos array
       const taskId = parseInt(e.target.dataset.id, 10);
       const itemToUpdate = todos.find((x) => x.id === taskId);
@@ -69,8 +69,8 @@ export function displayTasks() {
     });
   });
 
-  const titleEl = document.querySelectorAll("span.title");
+  const titleEl = document.querySelectorAll('span.title');
   titleEl.forEach((title) => {
-    title.addEventListener("input", editTask);
+    title.addEventListener('input', editTask);
   });
 }
